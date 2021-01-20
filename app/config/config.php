@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'https://localhost/pos';
+$config['base_url'] = 'https://localhost/posm';
 
 /*
 |--------------------------------------------------------------------------

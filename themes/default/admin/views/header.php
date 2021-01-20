@@ -8,6 +8,10 @@
     <link rel="shortcut icon" href="<?= $assets ?>images/icon.png"/>
     <link href="<?= $assets ?>styles/theme.css" rel="stylesheet"/>
     <link href="<?= $assets ?>styles/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<?= $assets ?>styles/style2.css">
+<link rel="stylesheet" href="<?= $assets ?>styles/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?= $assets ?>styles/et-line-font/et-line-font.css">
+<link rel="stylesheet" href="<?= $assets ?>styles/themify-icons/themify-icons.css">
     <link href="<?= base_url('assets/custom/custom.css') ?>" rel="stylesheet"/>
     <script type="text/javascript" src="<?= $assets ?>js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="<?= $assets ?>js/jquery-migrate-1.2.1.min.js"></script>
@@ -42,7 +46,7 @@
 </noscript>
 <div id="loading"></div>
 <div id="app_wrapper">
-    <header id="header" class="navbar">
+    <header id="header" class="navvbar blue-bg navbar-static-top">
         <div class="container">
             <a class="navbar-brand" href="<?= admin_url() ?>"><span class="logo"><?= $Settings->site_name ?></span></a>
 

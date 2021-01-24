@@ -2,12 +2,12 @@
 <div class="clearfix"></div>
 <?= '</div></div></div></td></tr></table></div></div>'; ?>
 <div class="clearfix"></div>
-<footer>
+<footer class="content-wrapper">
 <a href="#" id="toTop" class="blue" style="position: fixed; bottom: 30px; right: 30px; font-size: 30px; display: none;">
     <i class="fa fa-chevron-circle-up"></i>
 </a>
 
-    <p style="text-align:center;">&copy; <?= date('Y') . ' ' . $Settings->site_name; ?> (<a href="<?= base_url('documentation.pdf'); ?>" target="_blank"><?=' Powered By Moxols'; ?></a>
+    <p style="text-align:center; color: black;">&copy; <?= date('Y') . ' ' . $Settings->site_name; ?> (<a style="color: black;" href="https://moxols.com/" target="_blank"><?=' Powered By Moxols'; ?></a>
         ) <?php if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
     echo ' - Page rendered in <strong>{elapsed_time}</strong> seconds';
 } ?></p>

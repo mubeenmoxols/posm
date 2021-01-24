@@ -45,10 +45,17 @@
     </div>
 </noscript>
 <div id="loading"></div>
-<div id="app_wrapper">
-    <header id="header" class="navvbar blue-bg navbar-static-top">
-        <div class="container">
-            <a class="navbar-brand" href="<?= admin_url() ?>"><span class="logo"><?= $Settings->site_name ?></span></a>
+<div id="app_wrapper" >.
+
+    <header id="header" class="navbar">
+
+             
+          
+        <div class="header-nav">
+        
+            <span style="float: left; margin-bottom: -35px; "><img  width="250" src="<?=$assets?>images/lo.png"/></span>
+
+            <p style="font-size: 55px; margin-left: 270px; margin-bottom: -35px; margin-top: -20px;"><a href="<?= admin_url() ?>"><?= $Settings->site_name ?></a></p>
 
             <div class="btn-group visible-xs pull-right btn-visible-sm">
                 <button class="navbar-toggle btn" type="button" data-toggle="collapse" data-target="#sidebar_menu">
@@ -78,14 +85,14 @@
                     <span class="fa fa-sign-out"></span>
                 </a>
             </div>
-            <div class="header-nav">
-                <ul class="nav navbar-nav pull-right">
-                    <li class="dropdown">
+            <div class="navvbar-custom-menu">
+                <ul class="navv navvbar-nav pull-right">
+                    <li class="dropdown user user-menu p-ph-res">
                         <a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
                             <img alt="" src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded">
 
                             <div class="user">
-                                <span><?= lang('welcome') ?> <?= $this->session->userdata('username'); ?></span>
+                                <span class="hidden-xs" style="color: grey; font-family: sans-serif; font-weight: 500; font-size: 15px;"><?= lang('welcome') ?> <?= $this->session->userdata('username'); ?></span>
                             </div>
                         </a>
                         <ul class="dropdown-menu pull-right">
@@ -101,35 +108,13 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="<?= admin_url('logout'); ?>">
-                                    <i class="fa fa-sign-out"></i> <?= lang('logout'); ?>
+                                    <i class="fa fa-power-off"></i> <?= lang('logout'); ?>
                                 </a>
                             </li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-                    <li class="dropdown hidden-xs"><a class="btn tip" title="<?= lang('dashboard') ?>" data-placement="bottom" href="<?= admin_url('welcome') ?>"><i class="fa fa-dashboard"></i></a></li>
-                    <?php if (SHOP) {
-        ?>
-                    <li class="dropdown hidden-xs"><a class="btn tip" title="<?= lang('shop') ?>" data-placement="bottom" href="<?= base_url() ?>"><i class="fa fa-shopping-cart"></i></a></li>
-                    <?php
-    } ?>
-                    <?php if (POS) {
-        ?>
-                    <a href="<?= admin_url('pos') ?>" class="btn">
-                        <span class="fa fa-th-large"></span>
-                    </a>
-                    <?php
-    } ?>
-                    <?php if ($Owner) {
-        ?>
-                    <li class="dropdown hidden-sm">
-                        <a class="btn tip" title="<?= lang('settings') ?>" data-placement="bottom" href="<?= admin_url('system_settings') ?>">
-                            <i class="fa fa-cogs"></i>
-                        </a>
-                    </li>
-                    <?php
-    } ?>
                     <li class="dropdown hidden-xs">
                         <a class="btn tip" title="<?= lang('calculator') ?>" data-placement="bottom" href="#" data-toggle="dropdown">
                             <i class="fa fa-calculator"></i>
@@ -164,7 +149,7 @@
                         </li>
                     <?php
     } ?>
-                    <?php if ($events) {
+       <!--              <?php if ($events) {
         ?>
                         <li class="dropdown hidden-xs">
                             <a class="btn tip" title="<?= lang('calendar') ?>" data-placement="bottom" href="#" data-toggle="dropdown">
@@ -200,8 +185,8 @@
                         </a>
                     </li>
                     <?php
-    } ?>
-                    <li class="dropdown hidden-sm">
+    } ?> -->
+                    <!-- <li class="dropdown hidden-sm">
                         <a class="btn tip" title="<?= lang('styles') ?>" data-placement="bottom" data-toggle="dropdown"
                            href="#">
                             <i class="fa fa-css3"></i>
@@ -228,7 +213,7 @@
                         <a class="btn tip" title="<?= lang('language') ?>" data-placement="bottom" data-toggle="dropdown"
                            href="#">
                             <img src="<?= base_url('assets/images/' . $Settings->user_language . '.png'); ?>" alt="">
-                        </a>
+                        </a> -->
                         <ul class="dropdown-menu pull-right">
                             <?php $scanned_lang_dir = array_map(function ($path) {
         return basename($path);
@@ -359,13 +344,21 @@
     <div class="container" id="container">
         <div class="row" id="main-con">
         <table class="lt"><tr><td class="sidebar-con">
-            <div id="sidebar-left">
-                <div class="sidebar-nav nav-collapse collapse navbar-collapse" id="sidebar_menu">
-                    <ul class="nav main-menu">
-                        <li class="mm_welcome">
-                            <a href="<?= admin_url() ?>">
+            col-md-3 col-lg-2  sidebar collapse
+            <div class="main-sidebarr d-md-block bg-light">
+                <div id="sidebarr">
+                    <div class="user-panel">
+        <div class="image text-center"><img src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded> </div>
+        <div class="info">
+          <p>Alexander Pierce</p>
+          <a href="#"><i class="fa fa-cog"></i></a> <a href="#"><i class="fa fa-envelope-o"></i></a> <a href="#"><i class="fa fa-power-off"></i></a> </div>
+      </div>
+                <div class="active treeview menu-open" id="sidebar_menu">
+                    <ul class="nav flex-column" data-widget="tree">
+                        <li class="treeview">
+                            <a class="" href="<?= admin_url() ?>">
                                 <i class="fa fa-dashboard"></i>
-                                <span class="text"> <?= lang('dashboard'); ?></span>
+                                <span> <?= lang('dashboard'); ?></span>
                             </a>
                         </li>
 
@@ -373,13 +366,13 @@
                         if ($Owner || $Admin) {
                             ?>
 
-                            <li class="mm_products">
+                            <li class="treeview">
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-barcode"></i>
                                     <span class="text"> <?= lang('products'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="products_index">
                                         <a class="submenu" href="<?= admin_url('products'); ?>">
                                             <i class="fa fa-barcode"></i>
@@ -435,9 +428,9 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-heart"></i>
                                     <span class="text"> <?= lang('sales'); ?>
-                                    </span> <span class="chevron closed"></span>
+                                    </span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> 
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="sales_index">
                                         <a class="submenu" href="<?= admin_url('sales'); ?>">
                                             <i class="fa fa-heart"></i>
@@ -485,9 +478,9 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-heart-o"></i>
                                     <span class="text"> <?= lang('quotes'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="quotes_index">
                                         <a class="submenu" href="<?= admin_url('quotes'); ?>">
                                             <i class="fa fa-heart-o"></i>
@@ -507,9 +500,9 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-star"></i>
                                     <span class="text"> <?= lang('purchases'); ?>
-                                    </span> <span class="chevron closed"></span>
+                                    </span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="purchases_index">
                                         <a class="submenu" href="<?= admin_url('purchases'); ?>">
                                             <i class="fa fa-star"></i>
@@ -547,9 +540,9 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-star-o"></i>
                                     <span class="text"> <?= lang('transfers'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="transfers_index">
                                         <a class="submenu" href="<?= admin_url('transfers'); ?>">
                                             <i class="fa fa-star-o"></i><span class="text"> <?= lang('list_transfers'); ?></span>
@@ -572,9 +565,9 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-random"></i>
                                     <span class="text"> <?= lang('returns'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="returns_index">
                                         <a class="submenu" href="<?= admin_url('returns'); ?>">
                                             <i class="fa fa-random"></i><span class="text"> <?= lang('list_returns'); ?></span>
@@ -592,9 +585,9 @@
                                 <a class="dropmenu" href="#">
                                 <i class="fa fa-users"></i>
                                 <span class="text"> <?= lang('people'); ?> </span>
-                                <span class="chevron closed"></span>
+                                <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <?php if ($Owner) {
                                 ?>
                                     <li id="auth_users">
@@ -656,9 +649,9 @@
                                 <li class="mm_system_settings <?= strtolower($this->router->fetch_method()) == 'sales' ? '' : 'mm_pos' ?>">
                                     <a class="dropmenu" href="#">
                                         <i class="fa fa-cog"></i><span class="text"> <?= lang('settings'); ?> </span>
-                                        <span class="chevron closed"></span>
+                                        <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                     </a>
-                                    <ul>
+                                    <ul class="treeview-menu">
                                         <li id="system_settings_index">
                                             <a href="<?= admin_url('system_settings') ?>">
                                                 <i class="fa fa-cogs"></i><span class="text"> <?= lang('system_settings'); ?></span>
@@ -758,11 +751,11 @@
                                                 <i class="fa fa-database"></i><span class="text"> <?= lang('backups'); ?></span>
                                             </a>
                                         </li>
-                                        <!-- <li id="system_settings_updates">
+                                        <li id="system_settings_updates">
                                             <a href="<?= admin_url('system_settings/updates') ?>">
                                                 <i class="fa fa-upload"></i><span class="text"> <?= lang('updates'); ?></span>
                                             </a>
-                                        </li> -->
+                                        </li>
                                     </ul>
                                 </li>
                             <?php
@@ -771,9 +764,9 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-bar-chart-o"></i>
                                     <span class="text"> <?= lang('reports'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="reports_index">
                                         <a href="<?= admin_url('reports') ?>">
                                             <i class="fa fa-bars"></i><span class="text"> <?= lang('overview_chart'); ?></span>
@@ -904,9 +897,9 @@
                             <li class="mm_shop_settings mm_api_settings">
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-shopping-cart"></i><span class="text"> <?= lang('front_end'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
-                                <ul>
+                                <ul class="treeview-menu">
                                     <li id="shop_settings_index">
                                         <a href="<?= admin_url('shop_settings') ?>">
                                             <i class="fa fa-cog"></i><span class="text"> <?= lang('shop_settings'); ?></span>
@@ -962,7 +955,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-barcode"></i>
                                     <span class="text"> <?= lang('products'); ?>
-                                    </span> <span class="chevron closed"></span>
+                                    </span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <li id="products_index">
@@ -1030,7 +1023,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-heart"></i>
                                     <span class="text"> <?= lang('sales'); ?>
-                                    </span> <span class="chevron closed"></span>
+                                    </span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <li id="sales_index">
@@ -1085,7 +1078,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-heart-o"></i>
                                     <span class="text"> <?= lang('quotes'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <li id="sales_index">
@@ -1113,7 +1106,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-star"></i>
                                     <span class="text"> <?= lang('purchases'); ?>
-                                    </span> <span class="chevron closed"></span>
+                                    </span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <li id="purchases_index">
@@ -1156,7 +1149,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-star-o"></i>
                                     <span class="text"> <?= lang('transfers'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <li id="transfers_index">
@@ -1184,7 +1177,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-random"></i>
                                     <span class="text"> <?= lang('returns'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <li id="returns_index">
@@ -1212,7 +1205,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-users"></i>
                                     <span class="text"> <?= lang('people'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <?php if ($GP['customers-index']) {
@@ -1262,7 +1255,7 @@
                                 <a class="dropmenu" href="#">
                                     <i class="fa fa-bar-chart-o"></i>
                                     <span class="text"> <?= lang('reports'); ?> </span>
-                                    <span class="chevron closed"></span>
+                                    <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
                                 </a>
                                 <ul>
                                     <?php if ($GP['reports-quantity_alerts']) {
@@ -1419,10 +1412,13 @@
                         } ?>
                     </ul>
                 </div>
-                <a href="#" id="main-menu-act" class="full visible-md visible-lg">
-                    <i class="fa fa-angle-double-left"></i>
-                </a>
             </div>
+            <!--  <a href="#" id="main-menu-act" class="full visible-md visible-lg">
+                    <i class="fa fa-angle-double-left"></i>
+                </a> -->
+            </div>
+            
+
             </td><td class="content-con">
             <div id="content">
                 <div class="row">

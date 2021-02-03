@@ -19,11 +19,11 @@ function row_status($x)
 ?>
 <div class="row" style="margin-bottom: 15px;">
     <div class="col-lg-12">
-        <div class="box">
-            <div class="box-header">
-                <h2 class="blue"><i class="fa fa-th"></i><span class="break"></span><?= lang('quick_links') ?></h2>
+        <div class="card bg-light box">
+            <div class="card-header">
+                <h2 class="blue" style="margin-left: 10px;"><?= lang('quick_links').":" ?></h2>
             </div>
-            <div class="box-content">
+            <div class="card-body">
                 <div class="col-lg-1 col-md-2 col-xs-6">
                     <a class="bblue white quick-button small" href="<?= admin_url('products') ?>">
                         <i class="fa fa-barcode"></i>
@@ -119,14 +119,14 @@ function row_status($x)
         $mpurchases[] = $month_sale->purchases;
         $mtax3[]      = $month_sale->ptax;
     } ?>
-    <div class="box" style="margin-bottom: 15px;">
-        <div class="box-header">
-            <h2 class="blue"><i class="fa-fw fa fa-bar-chart-o"></i><?= lang('overview_chart'); ?></h2>
+    <div class="card bg-light mb-3 box" style="margin-bottom: 15px;">
+        <div class="card-header">
+            <h2 class="blue" style="margin-left: 10px;"><?= lang('overview_chart'); ?></h2>
         </div>
-        <div class="box-content">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="introtext"><?php echo lang('overview_chart_heading'); ?></p>
+                    <p class="card-text"><?php echo lang('overview_chart_heading'); ?></p>
 
                     <div id="ov-chart" style="width:100%; height:450px;"></div>
                     <p class="text-center"><?= lang('chart_lable_toggle'); ?></p>
@@ -144,11 +144,11 @@ function row_status($x)
         ?>
 <div class="row" style="margin-bottom: 15px;">
     <div class="col-lg-12">
-        <div class="box">
-            <div class="box-header">
-                <h2 class="blue"><i class="fa fa-th"></i><span class="break"></span><?= lang('quick_links') ?></h2>
+        <div class="card bg-light box">
+            <div class="card-header">
+                <h2 class="blue" style="margin-left: 10px;"><?= lang('quick_links') ?></h2>
             </div>
-            <div class="box-content">
+            <div class="card-body">
             <?php if ($GP['products-index']) {
             ?>
                 <div class="col-lg-1 col-md-2 col-xs-6">
@@ -230,13 +230,13 @@ function row_status($x)
 
 <div class="row" style="margin-bottom: 15px;">
     <div class="col-md-12">
-        <div class="box">
-            <div class="box-header">
-                <h2 class="blue"><i class="fa-fw fa fa-tasks"></i> <?= lang('latest_five') ?></h2>
+        <div class="card bg-light box">
+            <div class="card-header">
+                <h2 class="blue" style="margin-left: 10px;"><?= lang('latest_five') ?></h2>
             </div>
-            <div class="box-content">
+            <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="card-body">
 
                         <ul id="dbTab" class="nav nav-tabs">
                             <?php if ($Owner || $Admin || $GP['sales-index']) {
@@ -768,13 +768,12 @@ function row_status($x)
     </script>
     <div class="row" style="margin-bottom: 15px;">
         <div class="col-sm-6">
-            <div class="box">
-                <div class="box-header">
-                    <h2 class="blue"><i
-                            class="fa-fw fa fa-line-chart"></i><?= lang('best_sellers'), ' (' . date('M-Y', time()) . ')'; ?>
+            <div class="card bg-light box">
+                <div class="card-header">
+                    <h2 class="blue" style="margin-left: 10px;"><?= lang('best_sellers'), ' (' . date('M-Y', time()) . ')'; ?>
                     </h2>
                 </div>
-                <div class="box-content">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div id="bschart" style="width:100%; height:450px;"></div>
@@ -784,13 +783,12 @@ function row_status($x)
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="box">
-                <div class="box-header">
-                    <h2 class="blue"><i
-                            class="fa-fw fa fa-line-chart"></i><?= lang('best_sellers') . ' (' . date('M-Y', strtotime('-1 month')) . ')'; ?>
+            <div class="card bg-light box">
+                <div class="card-header">
+                    <h2 class="blue" style="margin-left: 10px;"><?= lang('best_sellers') . ' (' . date('M-Y', strtotime('-1 month')) . ')'; ?>
                     </h2>
                 </div>
-                <div class="box-content">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div id="lmbschart" style="width:100%; height:450px;"></div>

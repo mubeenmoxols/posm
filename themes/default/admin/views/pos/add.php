@@ -46,8 +46,8 @@
 
 <div id="wrapper">
     <header id="header" class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="<?=admin_url()?>"><span class="logo"><span class="pos-logo-lg"><?=$Settings->site_name?></span><span class="pos-logo-sm"><?=lang('pos')?></span></span></a>
+        <div class="container"><!-- 
+            <a class="navbar-brand" href="<?=admin_url()?>"><span class="logo"><span class="pos-logo-lg"><?=$Settings->site_name?></span><span class="pos-logo-sm"><?=lang('pos')?></span></span></a> -->
 
             <div class="header-nav">
                 <ul class="nav navbar-nav pull-right">
@@ -56,7 +56,7 @@
                             <img alt="" src="<?=$this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : $assets . 'images/' . $this->session->userdata('gender') . '.png';?>" class="mini_avatar img-rounded">
 
                             <div class="user hidden-small">
-                                <span><?=lang('welcome')?>! <?=$this->session->userdata('username');?></span>
+                                <span style="color: #333"><?=lang('welcome')?>! <?=$this->session->userdata('username');?></span>
                             </div>
                         </a>
                         <ul class="dropdown-menu pull-right">
@@ -79,8 +79,55 @@
                         </ul>
                     </li>
                 </ul>
-
-                <ul class="nav navbar-nav pull-right">
+                <ul>
+                <div class="row nav navbar-nav pull-left">
+                            <a style="min-width: 1px;" class="btn bblue pos-tip" title="<?=lang('dashboard')?>" data-placement="bottom" href="<?=admin_url('welcome')?>" >
+                            <i class="fa fa-dashboard fa-xs"> Dashboard</i>
+                            </a>
+                            <a style="min-width: 1px;" class="btn bblue pos-tip" title="<?=lang('list_open_registers')?>" data-placement="bottom" href="<?=admin_url('pos/registers')?>">
+                                <i class="fa fa-list fa-xs"> LOR</i>
+                            </a>  
+                        <a style="min-width: 1px;" class="btn bdarkGreen pos-tip" id="register_details" title="<span><?=lang('register_details')?></span>" data-placement="bottom" data-html="true" href="<?=admin_url('pos/register_details')?>" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-check-circle fa-xs"> RD</i>
+                        </a>
+                        <a style="min-width: 1px;" class="btn bdarkGreen pos-tip" id="today_profit" title="<span><?=lang('today_profit')?></span>" data-placement="bottom" data-html="true" href="<?=admin_url('reports/profit')?>" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-hourglass-half fa-xs"> TP</i>
+                            </a>
+                            <a style="min-width: 1px;" class="btn bdarkGreen pos-tip" id="today_sale" title="<span><?=lang('today_sale')?></span>" data-placement="bottom" data-html="true" href="<?=admin_url('pos/today_sale')?>" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-heart fa-xs"> TS</i>
+                            </a>  
+                         <a style="min-width: 1px;" class="btn pos-tip" title="<?=lang('calculator')?>" data-placement="bottom" href="#" data-toggle="dropdown">
+                            <i class="fa fa-calculator fa-xs"> Calculator</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right calc">
+                            <li class="dropdown-content">
+                                <span id="inlineCalc"></span>
+                            </li>
+                        </ul>
+                        <a style="min-width: 1px;" class="btn pos-tip" title="<?=lang('shortcuts')?>" data-placement="bottom" href="#" data-toggle="modal" data-target="#sckModal">
+                            <i class="fa fa-key fa-xs"> Shortcuts</i>
+                        </a>
+                        <a style="min-width: 1px;" class="btn borange pos-tip" id="close_register" title="<span><?=lang('close_register')?></span>" data-placement="bottom" data-html="true" data-backdrop="static" href="<?=admin_url('pos/close_register')?>" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-times-circle fa-xs"> CR</i>
+                        </a>
+                        <a style="min-width: 1px;" class="btn borange pos-tip" id="add_expense" title="<span><?=lang('add_expense')?></span>" data-placement="bottom" data-html="true" href="<?=admin_url('purchases/add_expense')?>" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-dollar fa-xs"> AE</i>
+                        </a>       
+                        <a style="min-width: 1px;" class="btn pos-tip" title="<?=lang('view_bill_screen')?>" data-placement="bottom" href="<?=admin_url('pos/view_bill')?>" target="_blank">
+                            <i class="fa fa-laptop fa-xs"> View Bill</i>
+                        </a>
+                            <a style="min-width: 1px;" class="btn pos-tip" title="<?=lang('settings')?>" data-placement="bottom" href="<?=admin_url('pos/settings')?>">
+                                <i class="fa fa-cogs fa-xs"> Settings</i>
+                            </a>
+                             <a style="min-width: 1px;" class="btn blightOrange pos-tip" id="opened_bills" title="<span><?=lang('suspended_sales')?></span>" data-placement="bottom" data-html="true" href="<?=admin_url('pos/opened_bills')?>" data-toggle="ajax">
+                            <i class="fa fa-th fa-xs"> Opened Bills</i>
+                        </a>
+                        <a style="min-width: 1px;" class="btn bred pos-tip" title="<?=lang('clear_ls')?>" data-placement="bottom" id="clearLS" href="#">
+                            <i class="fa fa-eraser fa-xs"> Clear</i>
+                        </a>                            
+                </div>
+                </ul>
+                <!-- <ul class="nav navbar-nav pull-right">
                     <li class="dropdown">
                         <a class="btn bblue pos-tip" title="<?=lang('dashboard')?>" data-placement="bottom" href="<?=admin_url('welcome')?>">
                             <i class="fa fa-dashboard"></i>
@@ -116,6 +163,8 @@
                             <i class="fa fa-laptop"></i>
                         </a>
                     </li>
+                    </ul>
+                    <ul>  
                     <li class="dropdown">
                         <a class="btn blightOrange pos-tip" id="opened_bills" title="<span><?=lang('suspended_sales')?></span>" data-placement="bottom" data-html="true" href="<?=admin_url('pos/opened_bills')?>" data-toggle="ajax">
                             <i class="fa fa-th"></i>
@@ -166,7 +215,7 @@
                             <i class="fa fa-eraser"></i>
                         </a>
                     </li>
-                </ul>
+                </ul> -->
 
                 <ul class="nav navbar-nav pull-right hidden-smallest">
                     <li class="dropdown">
@@ -201,7 +250,7 @@
                                 echo $this->lang->line('date') . ' ' . $this->sma->hrld(date('Y-m-d H:i:s'));
                             ?>
                         </div>
-                        <div id="left-top">
+                        <div id="left-top" class="bg-light">
                             <div
                                 style="position: absolute; <?=$Settings->user_rtl ? 'right:-9999px;' : 'left:-9999px;';?>"><?php echo form_input('test', '', 'id="test" class="kb-pad"'); ?></div>
                             <div class="form-group">
@@ -211,19 +260,19 @@
                                 ?>
                                     <div class="input-group-addon no-print" style="padding: 2px 8px; border-left: 0;">
                                         <a href="#" id="toogle-customer-read-attr" class="external">
-                                            <i class="fa fa-pencil" id="addIcon" style="font-size: 1.2em;"></i>
+                                            <i class="fa fa-pencil" id="addIcon" style="font-size: 1.2em; color: #333;"></i>
                                         </a>
                                     </div>
                                     <div class="input-group-addon no-print" style="padding: 2px 7px; border-left: 0;">
                                         <a href="#" id="view-customer" class="external" data-toggle="modal" data-target="#myModal">
-                                            <i class="fa fa-eye" id="addIcon" style="font-size: 1.2em;"></i>
+                                            <i class="fa fa-eye" id="addIcon" style="font-size: 1.2em; color: #333;"></i>
                                         </a>
                                     </div>
                                 <?php if ($Owner || $Admin || $GP['customers-add']) {
                                     ?>
                                     <div class="input-group-addon no-print" style="padding: 2px 8px;">
                                         <a href="<?=admin_url('customers/add'); ?>" id="add-customer" class="external" data-toggle="modal" data-target="#myModal">
-                                            <i class="fa fa-plus-circle" id="addIcon" style="font-size: 1.5em;"></i>
+                                            <i class="fa fa-plus-circle" id="addIcon" style="font-size: 1.5em; color: #333;"></i>
                                         </a>
                                     </div>
                                 <?php
@@ -265,7 +314,7 @@
                                     ?>
                                         <div class="input-group-addon" style="padding: 2px 8px;">
                                             <a href="#" id="addManually">
-                                                <i class="fa fa-plus-circle" id="addIcon" style="font-size: 1.5em;"></i>
+                                                <i class="fa fa-plus-circle" id="addIcon" style="font-size: 1.5em; color: #333;"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -299,7 +348,7 @@
                             </div>
                             <div style="clear:both;"></div>
                             <div id="left-bottom">
-                                <table id="totalTable"
+                                <table id="totalTable" class="bg-light" 
                                        style="width:100%; float:right; padding:5px; color:#000; background: #FFF;">
                                     <tr>
                                         <td style="padding: 5px 10px;border-top: 1px solid #DDD;"><?=lang('items');?></td>
@@ -353,7 +402,7 @@
                                     <div class="row">
                                         <div class="col-xs-4" style="padding: 0;">
                                             <div class="btn-group-vertical btn-block">
-                                                <button type="button" class="btn btn-warning btn-block btn-flat"
+                                                <button type="button" class="btn btn-danger  btn-block btn-flat"
                                                 id="suspend">
                                                     <?=lang('suspend'); ?>
                                                 </button>
@@ -364,20 +413,20 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-xs-4" style="padding: 0;">
+                                        <!-- <div class="col-xs-4" style="padding: 0;">
                                             <div class="btn-group-vertical btn-block">
                                                 <button type="button" class="btn btn-info btn-block" id="print_order">
                                                     <?=lang('order');?>
                                                 </button>
 
-                                                <button type="button" class="btn btn-primary btn-block" id="print_bill">
+                                                <button type="button" class="btn btn-info btn-block" id="print_bill">
                                                     <?=lang('bill');?>
                                                 </button>
                                             </div>
-                                        </div>
-                                        <div class="col-xs-4" style="padding: 0;">
-                                            <button type="button" class="btn btn-success btn-block" id="payment" style="height:67px;">
-                                                <i class="fa fa-money" style="margin-right: 5px;"></i><?=lang('Pay Bill');?>
+                                        </div> -->
+                                        <div class="col-xs-8" style="padding: 0;">
+                                            <button type="button" class="btn btn-primary btn-block" id="payment" style="height:67px;">
+                                                <i class="" style="margin-right: 5px;"></i><?=lang('Pay $');?>
                                             </button>
                                         </div>
                                     </div>

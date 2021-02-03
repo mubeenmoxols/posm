@@ -45,7 +45,7 @@
     </div>
 </noscript>
 <div id="loading"></div>
-<div id="app_wrapper" >.
+<div id="app_wrapper" >
 
     <header id="header" class="navbar">
 
@@ -53,9 +53,9 @@
           
         <div class="header-nav">
         
-            <span style="float: left; margin-bottom: -35px; "><img  width="250" src="<?=$assets?>images/lo.png"/></span>
+            <span style="float: left;"><img width="180" src="<?=$assets?>images/lo.png"/></span>
 
-            <p style="font-size: 55px; margin-left: 270px; margin-bottom: -35px; margin-top: -20px;"><a href="<?= admin_url() ?>"><?= $Settings->site_name ?></a></p>
+            <p style="font-size: 30px; margin-left: 10px; padding-top: 2px;" class="pull-left"><a href="<?= admin_url() ?>"><?= $Settings->site_name ?></a></p>
 
             <div class="btn-group visible-xs pull-right btn-visible-sm">
                 <button class="navbar-toggle btn" type="button" data-toggle="collapse" data-target="#sidebar_menu">
@@ -85,14 +85,14 @@
                     <span class="fa fa-sign-out"></span>
                 </a>
             </div>
-            <div class="navvbar-custom-menu">
-                <ul class="navv navvbar-nav pull-right">
-                    <li class="dropdown user user-menu p-ph-res">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav pull-right" style="padding-top: 5px;">
+                    <li class="dropdown">
                         <a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
                             <img alt="" src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded">
 
                             <div class="user">
-                                <span class="hidden-xs" style="color: grey; font-family: sans-serif; font-weight: 500; font-size: 15px;"><?= lang('welcome') ?> <?= $this->session->userdata('username'); ?></span>
+                                <span class="hidden-xs" style="color: grey; font-family: sans-serif; font-weight: 500; font-size: 20px;"><?= lang('welcome') ?> <?= $this->session->userdata('username'); ?></span>
                             </div>
                         </a>
                         <ul class="dropdown-menu pull-right">
@@ -114,7 +114,7 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav pull-right">
+                <ul class="nav navbar-nav pull-right" style="padding-top: 5px;">
                     <li class="dropdown hidden-xs">
                         <a class="btn tip" title="<?= lang('calculator') ?>" data-placement="bottom" href="#" data-toggle="dropdown">
                             <i class="fa fa-calculator"></i>
@@ -248,7 +248,7 @@
                     <?php if (($Owner || $Admin || $GP['reports-quantity_alerts'] || $GP['reports-expiry_alerts']) && ($qty_alert_num > 0 || $exp_alert_num > 0 || $shop_sale_alerts)) {
                                 ?>
                         <li class="dropdown hidden-sm">
-                            <a class="btn blightOrange tip" title="<?= lang('alerts') ?>"
+                            <a class="btn tip" title="<?= lang('alerts') ?>"
                                 data-placement="left" data-toggle="dropdown" href="#">
                                 <i class="fa fa-exclamation-triangle"></i>
                                 <span class="number bred black"><?= $qty_alert_num + (($Settings->product_expiry) ? $exp_alert_num : 0) + $shop_sale_alerts + $shop_payment_alerts; ?></span>
@@ -301,7 +301,7 @@
                     <?php if (POS) {
                                 ?>
                     <li class="dropdown hidden-xs">
-                        <a class="btn bdarkGreen tip" title="<?= lang('pos') ?>" data-placement="bottom" href="<?= admin_url('pos') ?>">
+                        <a class="btn tip" title="<?= lang('pos') ?>" data-placement="bottom" href="<?= admin_url('pos') ?>">
                             <i class="fa fa-th-large"></i> <span class="padding05"><?= lang('pos') ?></span>
                         </a>
                     </li>
@@ -310,7 +310,7 @@
                     <?php if ($Owner) {
                                 ?>
                         <li class="dropdown">
-                            <a class="btn bdarkGreen tip" id="today_profit" title="<span><?= lang('today_profit') ?></span>"
+                            <a class="btn tip" id="today_profit" title="<span><?= lang('today_profit') ?></span>"
                                 data-placement="bottom" data-html="true" href="<?= admin_url('reports/profit') ?>"
                                 data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-hourglass-2"></i>
@@ -323,14 +323,14 @@
                     <?php if (POS) {
                                     ?>
                     <li class="dropdown hidden-xs">
-                        <a class="btn bblue tip" title="<?= lang('list_open_registers') ?>" data-placement="bottom" href="<?= admin_url('pos/registers') ?>">
+                        <a class="btn tip" title="<?= lang('list_open_registers') ?>" data-placement="bottom" href="<?= admin_url('pos/registers') ?>">
                             <i class="fa fa-list"></i>
                         </a>
                     </li>
                     <?php
                                 } ?>
                     <li class="dropdown hidden-xs">
-                        <a class="btn bred tip" title="<?= lang('clear_ls') ?>" data-placement="bottom" id="clearLS" href="#">
+                        <a class="btn tip" title="<?= lang('clear_ls') ?>" data-placement="bottom" id="clearLS" href="#">
                             <i class="fa fa-eraser"></i>
                         </a>
                     </li>
@@ -344,14 +344,17 @@
     <div class="container" id="container">
         <div class="row" id="main-con">
         <table class="lt"><tr><td class="sidebar-con">
-            col-md-3 col-lg-2  sidebar collapse
+            <!-- col-md-3 col-lg-2  sidebar collapse -->
             <div class="main-sidebarr d-md-block bg-light">
                 <div id="sidebarr">
                     <div class="user-panel">
-        <div class="image text-center"><img src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded> </div>
+        <div class="image text-center">
+            <img src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded"> </div>
         <div class="info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-cog"></i></a> <a href="#"><i class="fa fa-envelope-o"></i></a> <a href="#"><i class="fa fa-power-off"></i></a> </div>
+          <span class="hidden-xs" style="color: grey; font-family: sans-serif; font-weight: 500; font-size: 25px;"><?= $this->session->userdata('username'); ?></span>
+          <br>
+          <br>
+          <a href="<?= admin_url('users/profile/' . $this->session->userdata('user_id')); ?>"><i class="fa fa-user"></i></a> <a href="<?= admin_url('users/profile/' . $this->session->userdata('user_id') . '/#cpassword'); ?>"><i class="fa fa-key"></i></a> <a href="<?= admin_url('logout'); ?>"><i class="fa fa-power-off"></i></a> </div>
       </div>
                 <div class="active treeview menu-open" id="sidebar_menu">
                     <ul class="nav flex-column" data-widget="tree">
@@ -367,7 +370,7 @@
                             ?>
 
                             <li class="treeview">
-                                <a class="dropmenu" href="#">
+                                <a class="dropmenu">
                                     <i class="fa fa-barcode"></i>
                                     <span class="text"> <?= lang('products'); ?> </span>
                                     <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>
@@ -1419,10 +1422,11 @@
             </div>
             
 
-            </td><td class="content-con">
+            </td><td class="content-wrapper">
             <div id="content">
-                <div class="row">
+                <div class=" content-header row">
                     <div class="col-sm-12 col-md-12">
+                     
                         <ul class="breadcrumb">
                             <?php
                             foreach ($bc as $b) {
@@ -1437,9 +1441,10 @@
                                 <?= lang('your_ip') . ' ' . $ip_address . " <span class='hidden-sm'>( " . lang('last_login_at') . ': ' . date($dateFormats['php_ldate'], $this->session->userdata('old_last_login')) . ' ' . ($this->session->userdata('last_ip') != $ip_address ? lang('ip:') . ' ' . $this->session->userdata('last_ip') : '') . ' )</span>' ?>
                             </li>
                         </ul>
+                       
                     </div>
                 </div>
-                <div class="row">
+                <div class="content row">
                     <div class="col-lg-12">
                         <?php if ($message) {
                                 ?>

@@ -425,7 +425,7 @@
                                             </div>
                                         </div> -->
                                         <div class="col-xs-8" style="padding: 0;">
-                                            <button type="button" class="btn btn-primary btn-block" id="payment" style="height:67px;">
+                                            <button type="button" class="btn btn-success btn-block" id="payment" style="height:67px;">
                                                 <i class="" style="margin-right: 5px;"></i><?=lang('Pay $');?>
                                             </button>
                                         </div>

@@ -248,7 +248,7 @@ if (!empty($variants)) {
                     <div class="form-group all">
                         <?= lang('product_image', 'product_image') ?>
                         <input id="product_image" type="file" data-browse-label="<?= lang('browse'); ?>" name="product_image" data-show-upload="false"
-                               data-show-preview="false" accept="image/*" class="form-control file">
+                               data-show-preview="false" accept="image/*" class="form-control file bg-info">
                     </div>
 
                     <div class="form-group all">
@@ -398,7 +398,7 @@ if (!empty($variants)) {
                 <div class="form-group standard">
                     <div class="form-group">
                         <?= lang('supplier', 'supplier') ?>
-                        <button type="button" class="btn btn-primary btn-xs" id="addSupplier"><i class="fa fa-plus"></i>
+                        <button type="button" class="btn btn-info btn-xs" id="addSupplier"><i class="fa fa-plus"></i>
                         </button>
                     </div>
                     <div class="row" id="supplier-con">

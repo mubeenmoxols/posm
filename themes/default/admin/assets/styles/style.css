@@ -170,9 +170,14 @@ h6 {
     background: white;
     color: #34383c;
     font-size: 16px;
-    background: #f7f7f8;
-    border-bottom: 1px solid #dbdee0;
+    /*background: #f7f7f8;*/
+    /*border-bottom: 1px solid #dbdee0;*/
     height: 40px;
+}
+.box-content {
+    display: block;
+    padding: 10px;
+    position: relative;
 }
 .box .box-header h2 {
     float: left;
@@ -397,10 +402,10 @@ select.form-control option {
 }
 .table th, .table td { vertical-align: middle !important; }
 .table > thead:first-child > tr:first-child > th, .table > thead:first-child > tr:first-child > td, .table-striped thead tr.primary:nth-child(odd) th {
-    background-color: #333;
+    background-color: #5bc0de;
     color: white;
-    border-color: #333;
-    border-top: 1px solid  #666;
+    border-color: #5bc0de;
+    border-top: 1px solid  #1df;
     text-align: center;
 }
 .table-responsive { margin-bottom: 0; }

@@ -90,7 +90,7 @@
 <?php if ($Owner || $GP['bulk_actions']) {
                 echo admin_form_open('products/product_actions' . ($warehouse_id ? '/' . $warehouse_id : ''), 'id="action-form"');
             } ?>
-<div class="box">
+<div class="card bg-light box">
     <div class="box-header">
         <h2 class="blue"><i
                 class="fa-fw fa fa-barcode"></i><?= lang('products') . ' (' . ($warehouse_id ? $warehouse->name : lang('all_warehouses')) . ')' . ($supplier ? ' (' . lang('supplier') . ': ' . ($supplier->company && $supplier->company != '-' ? $supplier->company : $supplier->name) . ')' : ''); ?>
@@ -203,7 +203,7 @@
                         </tr>
                         </tbody>
 
-                        <tfoot class="dtFilter">
+                      <!--   <tfoot class="dtFilter">
                         <tr class="active">
                             <th style="min-width:30px; width: 30px; text-align: center;">
                                 <input class="checkbox checkft" type="checkbox" name="check"/>
@@ -232,7 +232,7 @@
                             <th></th>
                             <th style="width:65px; text-align:center;"><?= lang('actions') ?></th>
                         </tr>
-                        </tfoot>
+                        </tfoot> -->
                     </table>
                 </div>
             </div>

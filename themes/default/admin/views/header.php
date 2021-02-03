@@ -347,7 +347,7 @@
             <!-- col-md-3 col-lg-2  sidebar collapse -->
             <div class="main-sidebarr d-md-block bg-light">
                 <div id="sidebarr">
-                    <div class="user-panel">
+                   <!--  <div class="user-panel">
         <div class="image text-center">
             <img src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded"> </div>
         <div class="info">
@@ -355,7 +355,7 @@
           <br>
           <br>
           <a href="<?= admin_url('users/profile/' . $this->session->userdata('user_id')); ?>"><i class="fa fa-user"></i></a> <a href="<?= admin_url('users/profile/' . $this->session->userdata('user_id') . '/#cpassword'); ?>"><i class="fa fa-key"></i></a> <a href="<?= admin_url('logout'); ?>"><i class="fa fa-power-off"></i></a> </div>
-      </div>
+      </div> -->
                 <div class="active treeview menu-open" id="sidebar_menu">
                     <ul class="nav flex-column" data-widget="tree">
                         <li class="treeview">
